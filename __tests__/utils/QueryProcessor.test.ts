@@ -22,8 +22,6 @@ describe("QueryProcessor", () => {
     test('should return my USB ID', () => {
         const query = "what's your USB ID?";
         const response: string = QueryProcessor(query);
-        expect(response).toBe((
-		"YOUR USB ID SHOULD BE HERE"
-    	));
+        expect(response).toBe(("15-11661"));
     });
 });
