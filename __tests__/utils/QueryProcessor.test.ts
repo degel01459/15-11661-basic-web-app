@@ -34,5 +34,10 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("89");
     });
+    test('should identify the largest number among 11, 91, 53', () => {
+        const query = "Which of the following numbers is the largest: 11, 91, 53?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("91");
+    });
 
 });

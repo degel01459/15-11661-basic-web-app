@@ -16,12 +16,19 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase() === "what is your name?") {
     return "KevinB";
   }
-  
+
   const sumMatch = query.toLowerCase().match(/what is (\d+) plus (\d+)\?/);
   if (sumMatch) {
     const num1 = parseInt(sumMatch[1], 10);
     const num2 = parseInt(sumMatch[2], 10);
     return (num1 + num2).toString();
+  }
+  
+  const largestMatch = query.toLowerCase().match(/which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/);
+  if (largestMatch) {
+    const numbers = largestMatch.slice(1).map(num => parseInt(num, 10));
+    const largestNumber = Math.max(...numbers);
+    return largestNumber.toString();
   }
 
   return "";
