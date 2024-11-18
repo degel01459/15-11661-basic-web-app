@@ -51,9 +51,17 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("64");
     });
+
     test('should identify prime numbers among 29, 78, 72, 61, 11', () => {
         const query = "Which of the following numbers are primes: 29, 78, 72, 61, 11?";
         const response: string = QueryProcessor(query);
         expect(response).toBe("29, 61, 11");
     });
+
+    test('should calculate 16 minus 30', () => {
+        const query = "What is 16 minus 30?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("-14");
+    });
+    
 });

@@ -54,5 +54,11 @@ export default function QueryProcessor(query: string): string {
     const primes = numbers.filter(isPrime);
     return primes.join(", ");
   }
+  const subtractMatch = query.toLowerCase().match(/what is (\d+) minus (\d+)\?/);
+  if (subtractMatch) {
+    const num1 = parseInt(subtractMatch[1], 10);
+    const num2 = parseInt(subtractMatch[2], 10);
+    return (num1 - num2).toString();
+  }
   return "";
 }
