@@ -37,6 +37,17 @@ export default function QueryProcessor(query: string): string {
     const num2 = parseInt(multiplyMatch[2], 10);
     return (num1 * num2).toString();
   }
+  const squareCubeMatch = query.toLowerCase().match(/which of the following numbers is both a square and a cube: (.+)\?/);
+  if (squareCubeMatch) {
+    const numbers = squareCubeMatch[1].split(",").map(num => parseInt(num.trim(), 10));
+    for (const number of numbers) {
+      const root = Math.round(Math.pow(number, 1 / 6));
+      if (Math.pow(root, 6) === number) {
+        return number.toString();
+      }
+    }
+    return "No such number found";
+  }
   
   return "";
 }
