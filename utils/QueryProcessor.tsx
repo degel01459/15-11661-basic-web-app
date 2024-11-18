@@ -48,6 +48,11 @@ export default function QueryProcessor(query: string): string {
     }
     return "No such number found";
   }
-  
+  const primeMatch = query.toLowerCase().match(/which of the following numbers are primes: (.+)\?/);
+  if (primeMatch) {
+    const numbers = primeMatch[1].split(",").map(num => parseInt(num.trim(), 10));
+    const primes = numbers.filter(isPrime);
+    return primes.join(", ");
+  }
   return "";
 }
