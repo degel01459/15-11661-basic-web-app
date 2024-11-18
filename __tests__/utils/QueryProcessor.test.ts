@@ -40,4 +40,10 @@ describe("QueryProcessor", () => {
         expect(response).toBe("91");
     });
 
+    test('should calculate 62 multiplied by 65', () => {
+        const query = "What is 62 multiplied by 65?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("4030");
+    });
+
 });
